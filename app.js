@@ -66,33 +66,40 @@ function startRender(){
   // eslint-disable-next-line quotes
   $('header').html(`<h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2> <div id= 'intro'> <button id="start-button" class="button" type="start">Start</button></div>`);
 }
-function questionRender(){
-  const question = store.questions[0];
+function questionRender(index){
+  const question = store.questions[index];
   $('#question-view').html(`<h1>${question.question} </h1>
-<form> <input type="radio"> ${question.answers[0]} <br>
+<form id='question-form'> <input type="radio"> ${question.answers[0]} <br>
 <input type="radio"> ${question.answers[1]} <br> 
 <input type="radio"> ${question.answers[2]} <br> 
 <input type="radio"> ${question.answers[3]}
-<button type="submit"> Submit </button>
+<button id='submit-button' type="submit"> Submit </button>
 </form>`);
-  console.log('qrenderrun');
 }
+
 function startButtonPress(){
   $('#intro').on('click', '#start-button', function(event) {
     $(event.currentTarget).closest('header').remove();
-    questionRender(1);
+    questionRender(0);
   });
 } 
+function resultsRender(){
+  console.log('resultrenderrun');
+}
 
 function userAnswer(){
+  $('form').submit(function(event){
+    console.log('userAnswer is running');
+    event.preventDefault();
+    resultsRender();
+  });
 }
+
 function userAnswerCheck(){
 }
 function nextButtonPress(){
 }
 function nextQuestionCheck(){
-}
-function resultsRender(){
 }
 function restartButtonPress(){
 }
