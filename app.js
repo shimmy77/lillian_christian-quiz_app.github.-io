@@ -5,29 +5,78 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'What kind of dog is this?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Golden Retriever',
+        'Great Dane',
+        'Daschund',
+        'Chihuahua'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Great Dane'
     },
     {
-      question: 'What is the current year?',
+      question: 'What kind of dog is this?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Border Collie',
+        'Australian Shepard',
+        'Shetland Sheepdog',
+        'Smooth Collie'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Shetland Sheepdog'
+    },
+    {
+      question: 'What kind of dog is this?',
+      answers: [
+        'Chinese Crested',
+        'Shiba inu',
+        'Greyhound',
+        'a Cat'
+      ],
+      correctAnswer: 'a Cat'
+    },
+    {
+      question: 'What kind of dog is this?',
+      answers: [
+        'Chihuahua',
+        'A cat',
+        'Daschund',
+        'Shih tzu'
+      ],
+      correctAnswer: 'Chihuahua'
+    },
+    {
+      question: 'What kind of dog is this?',
+      answers: [
+        'Long dog',
+        'A cat',
+        'Pomeranian',
+        'Daschund'
+      ],
+      correctAnswer: 'Long dog'
     }
   ],
   questionNumber: 0,
   score: 0
 };
+
+function startRender(){
+}
+function startButtonPress(){
+} 
+function questionRender(){
+}
+function userAnswer(){
+}
+function userAnswerCheck(){
+}
+function nextButtonPress(){
+}
+function nextQuestionCheck(){
+}
+function resultsRender(){
+}
+function restartButtonPress(){
+}
 
 /**
  *
