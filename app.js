@@ -1,6 +1,4 @@
-/**
- * Example store structure
- */
+'use strict';
 const store = {
   // 5 or more questions are required
   questions: [
@@ -60,11 +58,19 @@ const store = {
 };
 
 function startRender(){
+  // eslint-disable-next-line quotes
+  $('header').html(`<h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2> <div id= 'intro'> <button id="start-button" class="button" type="start">Start</button></div>`);
+}
+function questionRender(){
+  console.log('qrenderrun');
 }
 function startButtonPress(){
+  $('#intro').on('click', '#start-button', function(event) {
+    $(event.currentTarget).closest('header').remove();
+    questionRender();
+  });
 } 
-function questionRender(){
-}
+
 function userAnswer(){
 }
 function userAnswerCheck(){
@@ -77,6 +83,16 @@ function resultsRender(){
 }
 function restartButtonPress(){
 }
+
+function handleQuizApp(){
+  //console.log('handle-quiz-app');
+  startRender();
+  startButtonPress();
+  //questionRender();
+  userAnswer();
+}
+
+$(handleQuizApp);
 
 /**
  *
