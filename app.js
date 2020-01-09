@@ -3,6 +3,7 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
+      id: 1,
       question: 'What kind of dog is this?',
       answers: [
         'Golden Retriever',
@@ -13,6 +14,7 @@ const store = {
       correctAnswer: 'Great Dane'
     },
     {
+      id: 2,
       question: 'What kind of dog is this?',
       answers: [
         'Border Collie',
@@ -23,6 +25,7 @@ const store = {
       correctAnswer: 'Shetland Sheepdog'
     },
     {
+      id: 3,
       question: 'What kind of dog is this?',
       answers: [
         'Chinese Crested',
@@ -33,6 +36,7 @@ const store = {
       correctAnswer: 'a Cat'
     },
     {
+      id: 4,
       question: 'What kind of dog is this?',
       answers: [
         'Chihuahua',
@@ -43,6 +47,7 @@ const store = {
       correctAnswer: 'Chihuahua'
     },
     {
+      id: 5,
       question: 'What kind of dog is this?',
       answers: [
         'Long dog',
@@ -62,12 +67,20 @@ function startRender(){
   $('header').html(`<h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2> <div id= 'intro'> <button id="start-button" class="button" type="start">Start</button></div>`);
 }
 function questionRender(){
+  const question = store.questions[0];
+  $('#question-view').html(`<h1>${question.question} </h1>
+<form> <input type="radio"> ${question.answers[0]} <br>
+<input type="radio"> ${question.answers[1]} <br> 
+<input type="radio"> ${question.answers[2]} <br> 
+<input type="radio"> ${question.answers[3]}
+<button type="submit"> Submit </button>
+</form>`);
   console.log('qrenderrun');
 }
 function startButtonPress(){
   $('#intro').on('click', '#start-button', function(event) {
     $(event.currentTarget).closest('header').remove();
-    questionRender();
+    questionRender(1);
   });
 } 
 
