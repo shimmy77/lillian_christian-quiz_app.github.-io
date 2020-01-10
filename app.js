@@ -95,7 +95,8 @@ function rightResultRender(){
 }
 
 function userAnswer(){
-  $('form').submit(function(event){
+  $('main').submit('#question-form', function(event){
+    console.log('userAnswer is running');
     event.preventDefault();
     let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
     if(!selectedAnswer){
