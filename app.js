@@ -114,15 +114,14 @@ function userAnswer(){
   });
 }
 
-function userAnswerCheck(){
-}
 function nextButtonPress(){
-}
-function nextQuestionCheck(){
 }
 function restartButtonPress(){
 }
-
+function finalResultRender(){
+}
+function resetButtonPress(){
+}
 function handleQuizApp(){
   //console.log('handle-quiz-app');
   startRender();
