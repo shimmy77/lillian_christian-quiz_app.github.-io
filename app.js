@@ -62,62 +62,91 @@ const store = {
   score: 0
 };
 
-function startRender(){
+//Templates ==========================================================
+
+function startTemplate(){
   // eslint-disable-next-line quotes
-  $('header').html(`<h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2> <div id= 'intro'> <button id="start-button" class="button" type="start">Start</button></div>`);
+  return (`<div id= "start"> <h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2>  <button id="start-button" class="button" type="start">Start</button></div>`);
 }
-function questionRender(index){
+
+function questionTemplate(index){
   const question = store.questions[index];
-  $('#question-view').html(`<div id="question"> <h1>${question.question} </h1>
-<form id='question-form'> <label for="${question.answers[0]}"> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]} </label>
-<label for="${question.answers[1]}"> <input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]} </label>  
-<label for="${question.answers[2]}"> <input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]}  </label>
-<label for="${question.answers[3]}"> <input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]} </label>
+  return `<div id="question"> <h1>${question.question} </h1>
+<form id='question-form'> <label for="${question.answers[0]}"> <input type="radio" name="answer-choice" value="${question.answers[0]}" required> ${question.answers[0]} </label>
+<label for="${question.answers[1]}"> <input type="radio" name="answer-choice" value="${question.answers[1]}" required> ${question.answers[1]} </label>  
+<label for="${question.answers[2]}"> <input type="radio" name="answer-choice" value="${question.answers[2]}" required> ${question.answers[2]}  </label>
+<label for="${question.answers[3]}"> <input type="radio" name="answer-choice" value="${question.answers[3]}" required> ${question.answers[3]} </label>
 <button id='submit-button' type="submit"> Submit </button>
-</form> </div>`);
+</form> </div>`;
   
 }
 
+function rightResultTemplate(){
+  return '<div class="right-result"> <h2> Correct! </h2> <button id="next-button" type="button"> Next </button> </div>';
+}
 
+function wrongResultTemplate(){
+  return '<div class ="wrong-result"> <h2> Incorrect! </h2> <button id="next-button" type="submit"> Next </button> </div>';
+}
 
-function startButtonPress(){
-  $('#intro').on('click', '#start-button', function(event) {
-    $(event.currentTarget).closest('header').remove();
-    questionRender(0);
-  });
-} 
+function finalResultTemplate(){
+  return `<div class="final-result"> <h1> Your final results are: </h1> <h2> ${store.score} </h2> <button id="reset-button" type="button"> Try Again </button> </div>`;
+}
+
+//renders =========================================================
+
+function startRender(){
+  $('header').html(startTemplate());
+}
+
+function questionRender(){
+  if(store.questionNumber === 0){
+    $('#question-view').html(questionTemplate(0));
+  }
+  else if(store.questionNumber === 1){
+    $('#question-view').html(questionTemplate(1));
+  }
+  else if(store.questionNumber === 2){
+    $('#question-view').html(questionTemplate(2));
+  }
+  else if(store.questionNumber === 3){
+    $('#question-view').html(questionTemplate(3));
+  }
+  else if(store.questionNumber === 4){
+    $('#question-view').html(questionTemplate(4));
+  }
+}
 
 function rightResultRender(){
   console.log('right result render run');
   $('label').closest('div').remove();
-  $('#right-view').html('<h2> Correct! </h2> <button id="next-button" type="submit"> Next </button>');
+  $('#right-view').html(rightResultTemplate());
 }
-  
-
 
 function wrongResultRender(){
   console.log('wrong result render run');
   $('label').closest('div').remove();
-  $('#wrong-view').html('<h2> Incorrect! </h2> <button id="next-button" type="submit"> Next </button>');
+  $('#wrong-view').html(wrongResultTemplate());
 }
 
+function finalResultRender(){
+  $('main').html(finalResultTemplate());
+}
+
+// event handlers =================================================
+
+function startButtonPress(){
+  $('#start').on('click', '#start-button', function(event) {
+    $(event.currentTarget).closest('div').remove();
+    questionRender(0);
+  });
+} 
 
 function userAnswer(){
   $('main').submit('#question-form', function(event){
     console.log('userAnswer is running');
     event.preventDefault();
     let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
-    if(!selectedAnswer){
-      try {
-        !selectedAnswer;
-        alert('Please enter answer');
-        //throw 'Please enter answer';
-      }
-      catch(e) {
-        console.error(e);
-      }      
-      return;
-    }
     if(selectedAnswer === store.questions[store.questionNumber].correctAnswer){
       store.score += 1;
       rightResultRender();
@@ -128,17 +157,37 @@ function userAnswer(){
   });
 }
 
+function nextButtonPress(){
+  $('main').on('click', '#next-button', function(event){
+    $(event.currentTarget).closest('div').remove();
+    if (store.questionNumber < store.questions.length-1){
+      store.questionNumber ++;
+      questionRender(store.questionNumber);
+      return;
+    }
+    else{
+      finalResultRender();
+    }
+  });
+}
 
-function restartButtonPress(){
-}
-function finalResultRender(){
-}
 function resetButtonPress(){
+  $('main').on('click', '#reset-button', function(event){
+    $(event.currentTarget).closest('div').remove();
+    store.score = 0;
+    store.questionNumber = 0;
+    startRender();
+  });
 }
+
+// ================================================================
+
 function handleQuizApp(){
   startRender();
   startButtonPress();
   userAnswer();
+  nextButtonPress();
+  resetButtonPress();
 }
 
 $(handleQuizApp);
