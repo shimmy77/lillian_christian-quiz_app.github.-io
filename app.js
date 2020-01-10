@@ -89,9 +89,9 @@ function startButtonPress(){
 
 function rightResultRender(){
   console.log('right result render run');
-    $('label').closest('div').remove();
-    $('#right-view').html('<h2> Correct! </h2> <button id="next-button" type="submit"> Next </button>');
-  }
+  $('label').closest('div').remove();
+  $('#right-view').html('<h2> Correct! </h2> <button id="next-button" type="submit"> Next </button>');
+}
   
 
 
@@ -101,10 +101,10 @@ function wrongResultRender(){
   $('#wrong-view').html('<h2> Incorrect! </h2> <button id="next-button" type="submit"> Next </button>');
 }
 
-function nextButtonPress{
+function nextButtonPress(){
   $('main').on('click', '#next-button', function(event) {
     $(event.currentTarget).closest('header').remove();
-  }
+  });
 }
 
 function userAnswer(){
@@ -118,8 +118,8 @@ function userAnswer(){
         alert('Please enter answer');
         //throw 'Please enter answer';
       }
-       catch(e) {
-         console.error(e);
+      catch(e) {
+        console.error(e);
       }      
       return;
     }
