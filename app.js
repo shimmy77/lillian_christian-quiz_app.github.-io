@@ -69,9 +69,9 @@ function startRender(){
 function questionRender(index){
   const question = store.questions[index];
   $('#question-view').html(`<h1>${question.question} </h1>
-<form id='question-form'> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]} <br>
-<input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]} <br> 
-<input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]} <br> 
+<form id='question-form'> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]}
+<input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]}  
+<input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]}  
 <input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]}
 <button id='submit-button' type="submit"> Submit </button>
 </form>`);
@@ -86,7 +86,6 @@ function startButtonPress(){
 } 
 
 function wrongResultRender(){
-  //split this into right/wrong
   console.log('wrong result render run');
 }
 
