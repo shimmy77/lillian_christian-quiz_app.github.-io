@@ -75,8 +75,10 @@ function questionRender(index){
 <label for="${question.answers[3]}"> <input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]} </label>
 <button id='submit-button' type="submit"> Submit </button>
 </form> </div>`);
-  userAnswer();
+  
 }
+
+
 
 function startButtonPress(){
   $('#intro').on('click', '#start-button', function(event) {
@@ -87,14 +89,18 @@ function startButtonPress(){
 
 function rightResultRender(){
   console.log('right result render run');
-  $('main').submit('#question-form', function(event){
-    $(event.currentTarget).closest('div.question').remove();
-  });
-}
+    $('label').closest('div').remove();
+    $('#right-view').html('<h2> Correct! </h2> <button id="next-button" type="submit"> Next </button>');
+  }
+  
+
 
 function wrongResultRender(){
   console.log('wrong result render run');
+  $('label').closest('div').remove();
+  $('#wrong-view').html('<h2> Incorrect! </h2> <button id="next-button" type="submit"> Next </button>');
 }
+
 
 
 function userAnswer(){
