@@ -42,16 +42,15 @@ button {
   cursor: pointer;      
   text-decoration: none;      
   text-transform: uppercase;}
-    button {      
-    background-color:white;       
-    color: black;       
-    border: 2px solid #008CBA;}
-    button:hover {background-color: #008CBA; color: white;}
-  
-}
+  button {      
+  background-color:white;       
+  color: black;       
+  border: 2px solid #008CBA;}
+  button:hover {background-color: #008CBA; color: white;
+  }
+
 img {
-  max-width: 100%
-  height: auto;
+  width: 50%;
 }
 
 @media screen and (min-width: 600px) {

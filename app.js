@@ -11,7 +11,7 @@ const store = {
         'Daschund',
         'Chihuahua'
       ],
-      image: '<img src=great_dane.jpg alt="Great Dane" height="500px" width="500px" >',
+      image: '<img src=great_dane.jpg alt="Great Dane">',
       correctAnswer: 'Great Dane'
     },
     {
