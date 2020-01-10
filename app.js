@@ -101,11 +101,6 @@ function wrongResultRender(){
   $('#wrong-view').html('<h2> Incorrect! </h2> <button id="next-button" type="submit"> Next </button>');
 }
 
-function nextButtonPress{
-  $('main').on('click', '#next-button', function(event) {
-    $(event.currentTarget).closest('header').remove();
-  }
-}
 
 function userAnswer(){
   $('main').submit('#question-form', function(event){
