@@ -68,13 +68,13 @@ function startRender(){
 }
 function questionRender(index){
   const question = store.questions[index];
-  $('#question-view').html(`<h1>${question.question} </h1>
-<form id='question-form'> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]}
-<input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]}  
-<input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]}  
-<input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]}
+  $('#question-view').html(`<div id="question"> <h1>${question.question} </h1>
+<form id='question-form'> <label for="${question.answers[0]}"> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]} </label>
+<label for="${question.answers[1]}"> <input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]} </label>  
+<label for="${question.answers[2]}"> <input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]}  </label>
+<label for="${question.answers[3]}"> <input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]} </label>
 <button id='submit-button' type="submit"> Submit </button>
-</form>`);
+</form> </div>`);
   userAnswer();
 }
 
@@ -85,13 +85,17 @@ function startButtonPress(){
   });
 } 
 
+function rightResultRender(){
+  console.log('right result render run');
+  $('main').submit('#question-form', function(event){
+    $(event.currentTarget).closest('div.question').remove();
+  });
+}
+
 function wrongResultRender(){
   console.log('wrong result render run');
 }
 
-function rightResultRender(){
-  console.log('right result render run');
-}
 
 function userAnswer(){
   $('main').submit('#question-form', function(event){
@@ -99,8 +103,14 @@ function userAnswer(){
     event.preventDefault();
     let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
     if(!selectedAnswer){
-      //display error message
-      console.log('nothing selected');
+      try {
+        !selectedAnswer;
+        alert('Please enter answer');
+        //throw 'Please enter answer';
+      }
+      catch(e) {
+        console.error(e);
+      }      
       return;
     }
     if(selectedAnswer === store.questions[store.questionNumber].correctAnswer){
@@ -122,10 +132,8 @@ function finalResultRender(){
 function resetButtonPress(){
 }
 function handleQuizApp(){
-  //console.log('handle-quiz-app');
   startRender();
   startButtonPress();
-  //questionRender();
   userAnswer();
 }
 
