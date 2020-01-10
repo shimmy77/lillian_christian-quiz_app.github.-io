@@ -11,7 +11,7 @@ const store = {
         'Daschund',
         'Chihuahua'
       ],
-      image: '<image src=great_dane.jpg alt="Great Dane">',
+      image: '<img src=great_dane.jpg alt="Great Dane" height="500px" width="500px" >',
       correctAnswer: 'Great Dane'
     },
     {
@@ -23,7 +23,7 @@ const store = {
         'Shetland Sheepdog',
         'Smooth Collie'
       ],
-      image: '<image src=sheltie.jpg alt="Shetland Sheepdog">',
+      image: '<img src=sheltie.jpg alt="Shetland Sheepdog" >',
       correctAnswer: 'Shetland Sheepdog'
     },
     {
@@ -35,7 +35,7 @@ const store = {
         'Greyhound',
         'a Cat'
       ],
-      image: '<image src=cat.jpg alt="a Cat">',
+      image: '<img src=cat.jpg alt="a Cat">',
       correctAnswer: 'a Cat'
     },
     {
@@ -47,7 +47,7 @@ const store = {
         'Daschund',
         'Shih tzu'
       ],
-      image: '<image src=chihuahua.jpg alt="Chihuahua">',
+      image: '<img src=chihuahua.jpg alt="Chihuahua">',
       correctAnswer: 'Chihuahua'
     },
     {
@@ -59,7 +59,7 @@ const store = {
         'Pomeranian',
         'Daschund'
       ],
-      image: '<image src=ferret.jpg alt="Long dog">',
+      image: '<img src=ferret.jpg alt="Long dog">',
       correctAnswer: 'Long dog'
     }
   ],
