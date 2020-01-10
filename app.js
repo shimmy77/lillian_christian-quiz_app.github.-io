@@ -108,8 +108,8 @@ function userAnswer(){
         alert('Please enter answer');
         //throw 'Please enter answer';
       }
-      catch(e) {
-        console.error(e);
+       catch(e) {
+         console.error(e);
       }      
       return;
     }
