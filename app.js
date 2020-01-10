@@ -71,17 +71,17 @@ const store = {
 
 function startTemplate(){
   // eslint-disable-next-line quotes
-  return (`<div id= "start"> <h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2>  <button id="start-button" class="button" type="start">Start</button></div>`);
+  return (`<div id= "start"> <h1> Types of Dogs Quiz </h1> <h2> How much do you know about dogs? </h2> <nav> <button id="start-button" class="button" type="start">Start</button> </nav> </div>`);
 }
 
 function questionTemplate(index){
   const question = store.questions[index];
   return `<div id="question"> <h1>${question.question} </h1> ${question.image} 
-<form id='question-form'> <label for="${question.answers[0]}"> <input type="radio" name="answer-choice" value="${question.answers[0]}" required> ${question.answers[0]} </label>
-<label for="${question.answers[1]}"> <input type="radio" name="answer-choice" value="${question.answers[1]}" required> ${question.answers[1]} </label>  
-<label for="${question.answers[2]}"> <input type="radio" name="answer-choice" value="${question.answers[2]}" required> ${question.answers[2]}  </label>
-<label for="${question.answers[3]}"> <input type="radio" name="answer-choice" value="${question.answers[3]}" required> ${question.answers[3]} </label>
-<button id='submit-button' type="submit"> Submit </button> <h3> Current Score: ${store.score} </h3> <h3> Question ${store.questionNumber + 1} out of 5 </h3>
+<form id='question-form'> <label for="${question.answers[0]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[0]}" required> ${question.answers[0]} </label>
+<label for="${question.answers[1]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[1]}" required> ${question.answers[1]} </label>  
+<label for="${question.answers[2]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[2]}" required> ${question.answers[2]}  </label>
+<label for="${question.answers[3]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[3]}" required> ${question.answers[3]} </label>
+<nav> <button id='submit-button' type="submit"> Submit </button> </nav> <h3> Current Score: ${store.score} </h3> <h3> Question ${store.questionNumber + 1} out of 5 </h3>
 </form> </div>`;
   
 }
@@ -95,7 +95,7 @@ function wrongResultTemplate(){
 }
 
 function finalResultTemplate(){
-  return `<div class="final-result"> <h1> Your final results are: </h1> <h2> ${store.score} </h2> <button id="reset-button" type="button"> Try Again </button> </div>`;
+  return `<div class="final-result"> <h1> Your final results are: </h1> <h2> ${store.score} Correct out of 5! </h2> <button id="reset-button" type="button"> Try Again </button> </div>`;
 }
 
 //renders =========================================================

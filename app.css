@@ -2,7 +2,6 @@
   box-sizing: border-box;
   background-color: rgb(66, 65, 65);
   color: white;
-  
 }
 
 body {
@@ -15,7 +14,7 @@ header {
   max-height: 100%;
   justify-content: center;
   text-align: center;
-
+  flex-direction: column;
 }
 
 h1 {
@@ -26,31 +25,74 @@ h2 {
   margin-bottom: 50px;
 }
 
-button {
-  color: #0099CC;
-  background: transparent;
-  border: 5px solid #0099CC;
-  border-radius: 6px;
-  border: none;  
-  padding: 16px 32px; 
+nav {
+  display: flex;
   text-align: center; 
-  display: inline-block; 
-  font-size: 16px;      
-  margin: 4px 2px;      
+  justify-content: center;
+}
+
+button {
+  display: flex;
+  text-align: center; 
+  justify-content: center;
+  color: #0099CC;
+  background: white;
+  border: 2px solid #0099CC;
+  border-radius: 6px;
+  padding: 16px 32px;  
+  font-size: 16px;            
   -webkit-transition-duration: 0.4s; /* Safari */      
   transition-duration: 0.4s;      
   cursor: pointer;      
   text-decoration: none;      
-  text-transform: uppercase;}
-  button {      
-  background-color:white;       
-  color: black;       
-  border: 2px solid #008CBA;}
-  button:hover {background-color: #008CBA; color: white;
-  }
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+  
+button:hover {
+  background-color: #008CBA; 
+  color: white;
+}
 
+div#question {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  text-align: center;
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*want to restyle radios but couldn't get it working
+this hid the default 
+/*input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}*/
+
+/*img is good until it gets to large sizes*/
 img {
-  width: 50%;
+  width: 100%;
+  padding-bottom: 15px;
+}
+ /*stopped here */
+div#right-result {
+  display: flex;
+  max-height: 100%;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 600px) {
