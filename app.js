@@ -69,12 +69,13 @@ function startRender(){
 function questionRender(index){
   const question = store.questions[index];
   $('#question-view').html(`<h1>${question.question} </h1>
-<form id='question-form'> <input type="radio"> ${question.answers[0]} <br>
-<input type="radio"> ${question.answers[1]} <br> 
-<input type="radio"> ${question.answers[2]} <br> 
-<input type="radio"> ${question.answers[3]}
+<form id='question-form'> <input type="radio" name="answer-choice" value="${question.answers[0]}"> ${question.answers[0]} <br>
+<input type="radio" name="answer-choice" value="${question.answers[1]}" > ${question.answers[1]} <br> 
+<input type="radio" name="answer-choice" value="${question.answers[2]}"> ${question.answers[2]} <br> 
+<input type="radio" name="answer-choice" value="${question.answers[3]}"> ${question.answers[3]}
 <button id='submit-button' type="submit"> Submit </button>
 </form>`);
+  userAnswer();
 }
 
 function startButtonPress(){
@@ -83,15 +84,32 @@ function startButtonPress(){
     questionRender(0);
   });
 } 
-function resultsRender(){
-  console.log('resultrenderrun');
+
+function wrongResultRender(){
+  //split this into right/wrong
+  console.log('wrong result render run');
+}
+
+function rightResultRender(){
+  console.log('right result render run');
 }
 
 function userAnswer(){
   $('form').submit(function(event){
-    console.log('userAnswer is running');
     event.preventDefault();
-    resultsRender();
+    let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
+    if(!selectedAnswer){
+      //display error message
+      console.log('nothing selected');
+      return;
+    }
+    if(selectedAnswer === store.questions[store.questionNumber].correctAnswer){
+      store.score += 1;
+      rightResultRender();
+    }
+    else {
+      wrongResultRender();
+    }
   });
 }
 
