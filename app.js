@@ -88,7 +88,7 @@ function resultsRender(){
 }
 
 function userAnswer(){
-  $('#question-form').submit(function(event){
+  $('main').submit('#question-form', function(event){
     console.log('userAnswer is running');
     event.preventDefault();
     resultsRender();
