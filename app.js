@@ -105,9 +105,7 @@ function startRender(){
 }
 
 function questionRender(){
-  console.log('question is rendering');
   if(store.questionNumber === 0){
-    console.log('herro');
     $('#question-view').html(questionTemplate(0));
   }
   else if(store.questionNumber === 1){
@@ -122,17 +120,14 @@ function questionRender(){
   else if(store.questionNumber === 4){
     $('#question-view').html(questionTemplate(4));
   }
-  else {console.log('something');}
 }
 
 function rightResultRender(){
-  console.log('right result render run');
   $('label').closest('div').remove();
   $('#right-view').html(rightResultTemplate());
 }
 
 function wrongResultRender(){
-  console.log('wrong result render run');
   $('label').closest('div').remove();
   $('#wrong-view').html(wrongResultTemplate());
 }
@@ -144,9 +139,7 @@ function finalResultRender(){
 // event handlers =================================================
 
 function startButtonPress(){
-  console.log('start is running');
   $('#start').on('click', '#start-button', function(event) {
-    console.log('start is running listener');
     $(event.currentTarget).closest('div').remove();
     questionRender();
   });
@@ -154,10 +147,8 @@ function startButtonPress(){
 
 function userAnswer(){
   $('main').submit('#question-form', function(event){
-    console.log('userAnswer is running');
     event.preventDefault();
     let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
-    console.log(selectedAnswer);
     if(selectedAnswer === store.questions[store.questionNumber].correctAnswer){
       store.score += 1;
       rightResultRender();
@@ -189,7 +180,6 @@ function resetButtonPress(){
     store.questionNumber = 0;
     startRender();
     startButtonPress();
-    
   });
 }
 
