@@ -33,10 +33,10 @@ const store = {
         'Chinese Crested',
         'Shiba inu',
         'Greyhound',
-        'a Cat'
+        'A Cat'
       ],
       image: '<img src=cat-min.jpg alt="a Cat">',
-      correctAnswer: 'a Cat'
+      correctAnswer: 'A Cat'
     },
     {
       id: 4,
@@ -77,21 +77,21 @@ function startTemplate(){
 function questionTemplate(index){
   const question = store.questions[index];
   return `<div id="question"> <h1>${question.question} </h1> ${question.image} 
-<form id='question-form'> <label for="${question.answers[0]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[0]}" required> ${question.answers[0]} </label>
-<label for="${question.answers[1]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[1]}" required> ${question.answers[1]} </label>  
-<label for="${question.answers[2]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[2]}" required> ${question.answers[2]}  </label>
-<label for="${question.answers[3]}" class="radio"> <input type="radio" name="answer-choice" value="${question.answers[3]}" required> ${question.answers[3]} </label>
+<form id='question-form'> <label for="${question.answers[0]}" class="radio"> <input id = "${question.answers[0]}" type="radio" name="answer-choice" value="${question.answers[0]}" required> ${question.answers[0]} </label>
+<label for="${question.answers[1]}" class="radio"> <input id = "${question.answers[1]}" type="radio" name="answer-choice" value="${question.answers[1]}" required> ${question.answers[1]} </label>  
+<label for="${question.answers[2]}" class="radio"> <input id = "${question.answers[2]}" type="radio" name="answer-choice" value="${question.answers[2]}" required> ${question.answers[2]}  </label>
+<label for="${question.answers[3]}" class="radio"> <input id = "${question.answers[3]}" type="radio" name="answer-choice" value="${question.answers[3]}" required> ${question.answers[3]} </label>
 <nav> <button id='submit-button' type="submit"> Submit </button> </nav> <h3> Current Score: ${store.score} </h3> <h3> Question ${store.questionNumber + 1} out of 5 </h3>
 </form> </div>`;
   
 }
 
 function rightResultTemplate(){
-  return `<div class="right-result"> <h2> Correct! </h2> <p> That was a ${store.questions[store.questionNumber].correctAnswer} </p> <nav> <button id="next-button" type="button"> Next </button> </nav> </div>`;
+  return `<div class="right-result"> <h2> Correct! </h2> <p> ${store.questions[store.questionNumber].correctAnswer} was the correct answer! </p> <h3> Current Score: ${store.score} </h3>  <nav> <button id="next-button" type="button"> Next </button> </nav> </div>`;
 }
 
 function wrongResultTemplate(){
-  return `<div class ="wrong-result"> <h2> Incorrect! </h2> <p> The correct answer was ${store.questions[store.questionNumber].correctAnswer} </p> <nav> <button id="next-button" type="submit"> Next </button> <nav> </div>`;
+  return `<div class ="wrong-result"> <h2> Incorrect! </h2> <p> The correct answer was ${store.questions[store.questionNumber].correctAnswer} </p> <h3> Current Score: ${store.score} </h3> <nav> <button id="next-button" type="submit"> Next </button> <nav> </div>`;
 }
 
 function finalResultTemplate(){
