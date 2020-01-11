@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
-  background-color: rgb(66, 65, 65);
-  color: white;
+  background-color: #121212;
+  color: #dce6f1;
 }
 
 body {
@@ -18,11 +18,32 @@ header {
 }
 
 h1 {
-  margin-bottom: 80px;
+  display: flex;
+  max-height: 100%;
+  justify-content: center;
+  text-align: center;
+  /*margin-top: 100px;*/
+  /*margin-bottom: 80px;*/
+  font-size: 40px;
 }
 
 h2 {
+  display: flex;
+  max-height: 100%;
+  justify-content: center;
+  text-align: center;
+  margin-top: 150px;
   margin-bottom: 50px;
+  font-size: 30px;
+}
+
+p {
+  display: flex;
+  text-align: center; 
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 25px;
 }
 
 nav {
@@ -36,7 +57,7 @@ button {
   text-align: center; 
   justify-content: center;
   color: #0099CC;
-  background: white;
+  background: #dce6f1;
   border: 2px solid #0099CC;
   border-radius: 6px;
   padding: 16px 32px;  
@@ -86,19 +107,19 @@ img {
   width: 100%;
   padding-bottom: 15px;
 }
- /*stopped here */
-div#right-result {
-  display: flex;
-  max-height: 100%;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-}
-
+/* translates fine on med screens as is
 @media screen and (min-width: 600px) {
+}*/
 
-}
-
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 900px) {
+  
+  img{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 50%;
+    height: auto;
+    margin-left: 25%;
+  }
 
 }

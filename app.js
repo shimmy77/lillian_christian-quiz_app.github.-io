@@ -87,15 +87,15 @@ function questionTemplate(index){
 }
 
 function rightResultTemplate(){
-  return '<div class="right-result"> <h2> Correct! </h2> <button id="next-button" type="button"> Next </button> </div>';
+  return '<div class="right-result"> <h2> Correct! </h2> <nav> <button id="next-button" type="button"> Next </button> </nav> </div>';
 }
 
 function wrongResultTemplate(){
-  return `<div class ="wrong-result"> <h2> Incorrect! </h2> <p> The correct answer was ${store.questions[store.questionNumber].correctAnswer} </p><button id="next-button" type="submit"> Next </button> </div>`;
+  return `<div class ="wrong-result"> <h2> Incorrect! </h2> <p> The correct answer was ${store.questions[store.questionNumber].correctAnswer} </p> <nav> <button id="next-button" type="submit"> Next </button> <nav> </div>`;
 }
 
 function finalResultTemplate(){
-  return `<div class="final-result"> <h1> Your final results are: </h1> <h2> ${store.score} Correct out of 5! </h2> <button id="reset-button" type="button"> Try Again </button> </div>`;
+  return `<div class="final-result"> <h1> Your final results are: </h1> <h2> ${store.score} Correct out of 5! </h2> <nav> <button id="reset-button" type="button"> Try Again </button> </nav> </div>`;
 }
 
 //renders =========================================================
