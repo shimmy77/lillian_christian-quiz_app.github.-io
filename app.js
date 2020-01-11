@@ -87,7 +87,7 @@ function questionTemplate(index){
 }
 
 function rightResultTemplate(){
-  return '<div class="right-result"> <h2> Correct! </h2> <nav> <button id="next-button" type="button"> Next </button> </nav> </div>';
+  return `<div class="right-result"> <h2> Correct! </h2> <p> That was a ${store.questions[store.questionNumber].correctAnswer} </p> <nav> <button id="next-button" type="button"> Next </button> </nav> </div>`;
 }
 
 function wrongResultTemplate(){
