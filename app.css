@@ -62,7 +62,7 @@ button {
   border-radius: 6px;
   padding: 16px 32px;  
   font-size: 16px;            
-  -webkit-transition-duration: 0.4s; /* Safari */      
+  -webkit-transition-duration: 0.4s;       
   transition-duration: 0.4s;      
   cursor: pointer;      
   text-decoration: none;      
@@ -94,14 +94,6 @@ label {
   user-select: none;
 }
 
-/*want to restyle radios but couldn't get it working
-this hid the default 
-/*input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}*/
-
 /*img is good until it gets to large sizes*/
 img {
   width: 100%;
@@ -122,4 +114,4 @@ img {
     margin-left: 25%;
   }
 
-}
+} 

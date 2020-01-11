@@ -105,7 +105,9 @@ function startRender(){
 }
 
 function questionRender(){
+  console.log('question is rendering');
   if(store.questionNumber === 0){
+    console.log('herro');
     $('#question-view').html(questionTemplate(0));
   }
   else if(store.questionNumber === 1){
@@ -120,6 +122,7 @@ function questionRender(){
   else if(store.questionNumber === 4){
     $('#question-view').html(questionTemplate(4));
   }
+  else {console.log('something');}
 }
 
 function rightResultRender(){
@@ -135,15 +138,17 @@ function wrongResultRender(){
 }
 
 function finalResultRender(){
-  $('main').html(finalResultTemplate());
+  $('#results-view').html(finalResultTemplate());
 }
 
 // event handlers =================================================
 
 function startButtonPress(){
+  console.log('start is running');
   $('#start').on('click', '#start-button', function(event) {
+    console.log('start is running listener');
     $(event.currentTarget).closest('div').remove();
-    questionRender(0);
+    questionRender();
   });
 } 
 
@@ -152,6 +157,7 @@ function userAnswer(){
     console.log('userAnswer is running');
     event.preventDefault();
     let selectedAnswer = $('input[type=radio][name=answer-choice]:checked').val();
+    console.log(selectedAnswer);
     if(selectedAnswer === store.questions[store.questionNumber].correctAnswer){
       store.score += 1;
       rightResultRender();
@@ -182,6 +188,8 @@ function resetButtonPress(){
     store.score = 0;
     store.questionNumber = 0;
     startRender();
+    startButtonPress();
+    
   });
 }
 
